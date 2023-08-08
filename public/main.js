@@ -1,18 +1,27 @@
 /* ============================== PHASE 1 + 2 ============================== */
-
+   function findCookieVal(key) {
+    if(document.cookie) {
+        const cookies = document.cookies.split(";");
+        const themeCookies = cookies.find(cookie => cookie.startsWith(key));
+        return themeCoookies.split("=")[1]
+    }
+   }
 // For storing user's theme selection in cookies
 function storeTheme(themeName) {
-    // Your code here
+    const cookie = `type=${themeName}`;
+    document.cookie = cookie
 }
 
 // For restoring theme from cookies, if selected by the user in the past
 function restoreTheme() {
-    // Your code here
+    if(document.cookies) {
+        findCookieVal()
+    }
 }
 
 // For clearing theme selection from cookies (reset to default)
 function clearTheme() {
-    // Your code here
+   const data = new Date().toUTCString()
 }
 
 /* ================================ PHASE 3 ================================ */

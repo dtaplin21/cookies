@@ -21,19 +21,21 @@ function restoreTheme() {
 
 // For clearing theme selection from cookies (reset to default)
 function clearTheme() {
-   const data = new Date().toUTCString()
+   const data = new Date().toUTCString();
+   document.cookie = `theme=; expires = ${date}`
 }
 
 /* ================================ PHASE 3 ================================ */
 
 // For storing user's display name in cookies
 function storeName(displayName) {
-    // Your code here
+    document.cookie = `name=${displayName}`
 }
 
 // For restoring user's display name from cookies, if set in the past
 function restoreName() {
-    // Your code here
+    const val = findCookieVal("name");
+    val && swtInputValue("display-name", val)
 }
 
 // For clearing user's display name from cookies

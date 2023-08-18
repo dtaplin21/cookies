@@ -1,46 +1,40 @@
 /* ============================== PHASE 1 + 2 ============================== */
    function findCookieVal(key) {
-    if(document.cookie) {
-        const cookies = document.cookies.split(";");
-        const themeCookies = cookies.find(cookie => cookie.startsWith(key));
-        return themeCoookies.split("=")[1]
-    }
+
    }
 // For storing user's theme selection in cookies
-function storeTheme(themeName) {
-    const cookie = `type=${themeName}`;
-    document.cookie = cookie
-}
+ function storeTheme (themeName) {
+    // if your are going to store  certain part you have to put it in the parameters
+   const cookie = document.cookie = "myCookies=themeName";
+   console.log(cookie)
+   //set a cookie to be stored
+ }
 
 // For restoring theme from cookies, if selected by the user in the past
-function restoreTheme() {
-    if(document.cookies) {
-        findCookieVal()
-    }
-}
+ function restoreTheme() {
+
+ }
 
 // For clearing theme selection from cookies (reset to default)
 function clearTheme() {
-   const data = new Date().toUTCString();
-   document.cookie = `theme=; expires = ${date}`
+
 }
 
 /* ================================ PHASE 3 ================================ */
 
 // For storing user's display name in cookies
 function storeName(displayName) {
-    document.cookie = `name=${displayName}`
+
 }
 
 // For restoring user's display name from cookies, if set in the past
 function restoreName() {
-    const val = findCookieVal("name");
-    val && swtInputValue("display-name", val)
+
 }
 
 // For clearing user's display name from cookies
 function clearName() {
-    // Your code here
+
 }
 
 /* ========================================================================= */

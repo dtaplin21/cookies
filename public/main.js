@@ -12,11 +12,18 @@
 
 // For restoring theme from cookies, if selected by the user in the past
  function restoreTheme() {
+   const cookie = findCookieVal("themeName"); //retrieve cookie value by name
 
+   if(cookie) {
+    setTheme(cookie) //make sure there is a cookie in the browser to be grabbed
+   } else {
+     resetTheme() // reset the theme if no cookies
+   }
  }
 
 // For clearing theme selection from cookies (reset to default)
-function clearTheme() {
+function clearTheme(name) {
+  document.cookie = `${name}=; expires=Thu, 05 AUG 2022 00:00:00 UTC; path=/;`;
 
 }
 

@@ -19,19 +19,21 @@
    } else {
      resetTheme() // reset the theme if no cookies
    }
+   console.log(cookie)
  }
 
 // For clearing theme selection from cookies (reset to default)
 function clearTheme(name) {
-  document.cookie = `${name}=; expires=Thu, 05 AUG 2022 00:00:00 UTC; path=/;`;
-
+  const clear = document.cookie = `${name}=; expires=Thu, 05 AUG 2022 00:00:00 UTC; path=/;`; //clear cookie by setting time to the past
+console.log(clear)
 }
 
 /* ================================ PHASE 3 ================================ */
 
 // For storing user's display name in cookies
 function storeName(displayName) {
-document.cookie = `displayName=${encodedURIcomponent(displayName)}; expires=${new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`
+const store = document.cookie = `displayName=${encodedURIcomponent(displayName)}; expires=${new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
+console.log(store)
 }
 
 // For restoring user's display name from cookies, if set in the past

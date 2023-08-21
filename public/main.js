@@ -31,7 +31,7 @@ function clearTheme(name) {
 
 // For storing user's display name in cookies
 function storeName(displayName) {
-
+document.cookie = `displayName=${encodedURIcomponent(displayName)}; expires=${new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`
 }
 
 // For restoring user's display name from cookies, if set in the past

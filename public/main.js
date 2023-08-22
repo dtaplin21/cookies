@@ -4,11 +4,29 @@
    }
 // For storing user's theme selection in cookies
  function storeTheme (themeName) {
+
+        const expirationInSeconds = 30; // Set the expiration time in seconds
+
+        // Calculate the expiration time in seconds from the current time
+        const expirationTime = new Date();
+        expirationTime.setSeconds(expirationTime.getSeconds() + expirationInSeconds);
+
+        // Format the expiration time for the cookie
+        const formattedExpiration = expirationTime.toUTCString();
+
+        // Create the cookie string
+        const cookieString = `theme=${encodeURIComponent(themeName)}; expires=${formattedExpiration}; path=/`;
+
+        // Set the cookie
+        document.cookie = cookieString;
+    }
+
+
     // if your are going to store  certain part you have to put it in the parameters
-   const cookie = document.cookie = "myCookies=themeName";
-   console.log(cookie)
+//    const cookie = document.cookie = "myCookies=themeName";
+//    console.log(cookie)
    //set a cookie to be stored
- }
+
 
 // For restoring theme from cookies, if selected by the user in the past
  function restoreTheme() {
@@ -24,9 +42,16 @@
 
 // For clearing theme selection from cookies (reset to default)
 function clearTheme(name) {
-  const clear = document.cookie = `${name}=; expires=Thu, 05 AUG 2022 00:00:00 UTC; path=/;`; //clear cookie by setting time to the past
-console.log(clear)
+    // Expire the cookie immediately by setting an expiration date in the past
+    const expirationDateInThePast = new Date('2000-01-01');
+    document.cookie = `${name}=; expires=${expirationDateInThePast.toUTCString()}; path=/;`;
+    console.log(document.cookie); // Print the updated cookies to verify
 }
+
+// function clearTheme(name) {
+//   const clear = document.cookie = `${name}=; expires=Thu, 05 AUG 2022 00:00:00 UTC; path=/;`; //clear cookie by setting time to the past
+// console.log(clear)
+// }
 
 /* ================================ PHASE 3 ================================ */
 

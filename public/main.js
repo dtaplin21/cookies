@@ -83,6 +83,7 @@ function restoreName() {
 
 // For clearing user's display name from cookies
 function clearName() {
+document.cookie = "disply-name=; expires=thur 01 Jan 1970 00:00:00 UTC; path=/"
 
 }
 

@@ -64,7 +64,7 @@ console.log(store)
 function getCookieValue(cookieName) {
    const cookies =  document.cookie.split(";");
     for(const cookie of cookies) {
-       const [key, value] = cookies.split("=");
+       const [key, value] = cookie.split("=");
       if(key === cookieName) {
 return decodeURIComponent(value)
       }

@@ -61,7 +61,7 @@ const store = document.cookie = `displayName=${encodedURIcomponent(displayName)}
 console.log(store)
 }
 
-function getCookieValule(cookieName) {
+function getCookieValue(cookieName) {
    const cookies =  document.cookie.split(";");
     for(const cookie of cookies) {
        const [key, value] = cookies.split("=");
@@ -74,11 +74,12 @@ return decodeURIComponent(value)
 
 // For restoring user's display name from cookies, if set in the past
 function restoreName() {
-let restore = document.cookie.split(";");
-for(const cookie of restore) {
-return cookie[0]
+  const getCookie = getCookieValue("display-name")
+  if(getCookie) {
+      setInputValue('display-name', getCookie)
+  }
 };
-}
+
 
 // For clearing user's display name from cookies
 function clearName() {
